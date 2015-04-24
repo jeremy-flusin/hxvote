@@ -21,6 +21,14 @@ var getCategories = function getCategories(callback){
     
 }
 
+var getProposals = function getProposals(callback){
+    connection.query('SELECT * FROM ActionRequest', function(err, rows, fields) {
+        if (err) throw err;
+        callback(rows);
+    });
+    
+}
+
 var saveActionRequest = function saveActionRequest(action, callback){
     var date = utils.getCurrentDate();
     var query = "INSERT INTO ActionRequest (author, description, date) VALUES ('"+action.author+"','"+action.description+"','"+date+"');";
@@ -40,5 +48,6 @@ var saveActionRequest = function saveActionRequest(action, callback){
 
 module.exports = {
     getCategories: getCategories,
+    getProposals: getProposals,
     saveActionRequest: saveActionRequest
 };

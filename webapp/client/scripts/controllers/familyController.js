@@ -7,7 +7,6 @@ angular.module('hxvoteFrontEndNgApp')
       socketService.on('getCategories_result', function (data) {
             $scope.families = data;
             $scope.$apply(); 
-            console.log(data);
       });
       
 }]);

@@ -1,4 +1,3 @@
-// create the module and name it scotchApp
 var appFrontEnd = angular.module('hxvoteFrontEndNgApp', ['ngRoute']);
 
 appFrontEnd.config(function($routeProvider) {

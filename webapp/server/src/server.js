@@ -37,6 +37,11 @@ ioserver.on('connection', function(socket) {
             socket.emit('propose_result', bool);
         });
     });
+    socket.on('getProposals', function() {
+      	db.getProposals(function(result){
+           socket.emit('getProposals_result', result); 
+        });
+    });
 });
 server.listen(++port);
 
