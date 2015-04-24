@@ -1,0 +1,15 @@
+<form action="index.html">
+    <div class="thread">
+        <h2><span class="active">PROPOSER UNE ACTION</span></h2>
+        <button class="thread-back-button pure-button"><</button>
+    </div>
+</form>
+<hr>
+<form  ng-submit="submit()">
+    <div ng-show="posted" class="thanks">Merci pour votre proposition !</div>
+    <div class="form">
+        <div><span>VOTRE PRENOM (optionnel)</span><input ng-model="action.author" style="text"></input></div>
+        <div><span>DESCRIPTION DE L'ACTION</span><textarea ng-model="action.description"></textarea></div>
+        <button class="form-button pure-button-primary pure-button">VALIDER</button>
+    </div>
+</form>

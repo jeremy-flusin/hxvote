@@ -1,0 +1,190 @@
+button.hide{
+    display: none;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+hr {
+  height: 1px;
+  padding: 0;
+  color: #BBB;
+  background-color: #BBB;
+  border: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1 {
+	margin-top: 50px;
+   	font-size: 30px;
+	font-weight: 100;
+	text-align: center;
+
+}
+
+h1.add{
+    font-size: 20px;
+    text-align: center;
+    margin: 0 0 25px 0;
+}
+
+h1 strong {
+	font-size: 52px;	
+	font-weight: 500;
+	color: #B71C1C;
+}
+
+h2 {
+	margin-left: 10%;
+	margin-bottom: 20px;
+	font-size: 25px;	
+	font-weight: 100;
+}
+
+h2 span.active {
+	color: #B71C1C;
+}
+
+div.content{
+	width: 100%;
+	margin: auto;
+	color: #333;
+}
+
+ul.fullscreen-list{
+	list-style-type: none;
+}
+
+ul.fullscreen-list a:first-child li{
+	border-top: 1px #BBB solid;
+}
+
+ul.fullscreen-list a li{
+	border-bottom: 1px #BBB solid;
+	height: 100px;
+	vertical-align: center;
+	-webkit-transition: background-color 0.3s; /* Safari */
+    transition: background-color 0.3s;
+}
+
+ul.fullscreen-list a li:hover{
+	background-color: #B71C1C;
+	color: #fff;
+}
+
+ul.fullscreen-list a li div:first-child{
+	margin-left: 10%;
+}
+
+ul.fullscreen-list a li div{
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 100px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.icon-family{
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.icon-eye{
+    background-image: url('../img/eye-icon.png');
+}
+ul.fullscreen-list a li:hover .icon-eye{
+    background-image: url('../img/eye-icon-white.png');
+}
+.icon-ear{
+    background-image: url('../img/ear-icon.png');
+}
+ul.fullscreen-list a li:hover .icon-ear{
+    background-image: url('../img/ear-icon-white.png');
+}
+.icon-mouth{
+    background-image: url('../img/mouth-icon.png');
+}
+ul.fullscreen-list a li:hover .icon-mouth{
+    background-image: url('../img/mouth-icon-white.png');
+}
+.icon-nose{
+    background-image: url('../img/nose-icon.png');
+}
+ul.fullscreen-list a li:hover .icon-nose{
+    background-image: url('../img/nose-icon-white.png');
+}
+
+.buttons-container{
+    width: 100%;
+    margin: 0 auto 150px auto;
+}
+
+.button {
+    background-color: #B71C1C;
+    margin: 0 5px;
+    width: 45%;
+}
+
+.button-left{
+    float: left;
+}
+
+.button-right{
+    float:right;
+}
+
+.thread h2{
+    display:inline-block;
+}
+
+.thread-back-button{
+    display:inline-block;
+    height: 30px;
+    margin-left: 20px;
+    vertical-align: top;
+}
+
+.form div{
+	font-size: 20px;	
+	font-weight: 100;
+    margin: 25px 0;
+}
+
+.form div span{
+    margin-right: 25px;
+}
+
+.form {
+    width: 100%;
+    margin-left: 10%;
+}
+
+.form-button {
+    background-color: #B71C1C;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.form div input, textarea{
+    width: 300px;
+    font-size: 18px;	
+	font-weight: 500;
+}
+
+.form div textarea{
+    height: 20%;
+    margin-left: 1px; /*pixel perfect tmtc*/
+    padding: 10px;
+}
+
+.form div input{
+    height: 40px;
+    padding: 0 10px;
+}
