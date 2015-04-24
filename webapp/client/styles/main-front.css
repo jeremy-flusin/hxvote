@@ -140,6 +140,10 @@ ul.fullscreen-list a li:hover .icon-nose{
     float:right;
 }
 
+.thread{
+    text-transform: uppercase;
+}
+
 .thread h2{
     display:inline-block;
 }

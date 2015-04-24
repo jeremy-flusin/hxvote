@@ -72,26 +72,33 @@ ul.fullscreen-list li{
     transition: background-color 0.3s;
 }
 
+ul.votes li{
+	min-height: 50px;
+}
+
 ul.fullscreen-list li p{
 	margin-left: 10%;
     margin-top: 10px;
 }
 
-p.author,p.date{
+p.author,p.date,p.votes,p.categoryLabel{
     display: inline-block;
 }
 
-p.author{
+p.author, p.categoryLabel{
     font-size: 20px;	
 	font-weight: 100;
 }
-p.date{
+p.date,p.votes{
     font-size: 10px;
     font-weight: 500;
     float: right;
     margin-right: 20px;
 }
-p.action-description{
+p.votes{
+  font-size: 20px;
+}
+p.action-description, p.actionLabel{
     margin-bottom: 10px;
 }
 .icon-family{

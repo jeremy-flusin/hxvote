@@ -1,0 +1,11 @@
+<form action="index.html">
+    <div class="thread">
+        <h2><span>FAMILLES</span> > <span class="active">{{familyLabel}}</span></h2>
+        <button class="thread-back-button pure-button"><</button>
+    </div>
+</form>
+<div ng-show="posted" class="thanks">Merci d'avoir voté !</div>
+<ul class="fullscreen-list">
+    <a ng-click="vote(action.id)" ng-repeat="action in actions"><li><div>{{action.label}}</div></li></a>
+</ul>
+<hr ng-hide="actions.length > 0" />

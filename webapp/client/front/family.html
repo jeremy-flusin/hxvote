@@ -3,11 +3,10 @@
     <button class="hide thread-back-button pure-button"><</button>
 </div>
 <ul class="fullscreen-list">
-    <a ng-repeat="family in families" href="#/{{family.link}}">
+    <a ng-repeat="family in families" href="#/action/{{family.label}}">
         <li>
             <div class="icon-family icon-{{family.icon}}"></div>
             <div>{{family.label}}</div>
         </li>
-    </a>
-    
+    </a> 
 </ul>

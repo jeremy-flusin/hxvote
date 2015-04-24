@@ -31,6 +31,16 @@ ioserver.on('connection', function(socket) {
       	db.getCategories(function(result){
            socket.emit('getCategories_result', result); 
         });
+    });    
+    socket.on('getActionsOfCategory', function(category) {
+      	db.getActionsOfCategory(category, function(result){
+           socket.emit('getActionsOfCategory_result', result); 
+        });
+    });    
+    socket.on('getActionsOrderedByVotes', function() {
+      	db.getActionsOrderedByVotes(function(result){
+           socket.emit('getActionsOrderedByVotes_result', result); 
+        });
     });
     socket.on('propose', function(action) {
         db.saveActionRequest(action, function(bool){
@@ -40,6 +50,11 @@ ioserver.on('connection', function(socket) {
     socket.on('getProposals', function() {
       	db.getProposals(function(result){
            socket.emit('getProposals_result', result); 
+        });
+    });
+    socket.on('vote', function(actionId) {
+        db.voteForAction(actionId, function(bool){
+            socket.emit('vote_result', bool);
         });
     });
 });

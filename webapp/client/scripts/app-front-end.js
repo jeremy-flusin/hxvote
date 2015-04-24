@@ -14,6 +14,10 @@ appFrontEnd.config(function($routeProvider) {
             templateUrl : '../front/family.html',
             controller  : 'familyController'
         })
+        .when('/action/:familyLabel', {
+            templateUrl : '../front/action.html',
+            controller  : 'actionController'
+        })
         .when('/', {
             templateUrl : '../front/family.html',
             controller  : 'familyController'

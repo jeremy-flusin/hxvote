@@ -1,4 +1,15 @@
 <div class="thread">
     <h2><span class="active">VOTES</span></h2>
+     <a ng-click="downOrder()" class="thread-back-button pure-button">Dec.</a>
+     <a ng-click="upOrder()" class="thread-back-button pure-button">Croi.</a>
 </div>
-<hr/>
+<ul class="fullscreen-list votes">
+    <li ng-repeat="action in actions">
+            <div>
+                <p class="categoryLabel">{{action.categoryLabel}}</p>
+                <p class="votes">{{action.votes}}</p>
+            </div>
+        <p class="actionLabel">{{action.label}}</p>
+    </li>
+</ul>
+<hr ng-hide="actions.length > 0" />
