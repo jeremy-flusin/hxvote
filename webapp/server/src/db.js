@@ -31,7 +31,8 @@ var getProposals = function getProposals(callback){
 
 var saveActionRequest = function saveActionRequest(action, callback){
     var date = utils.getCurrentDate();
-    var query = "INSERT INTO ActionRequest (author, description, date) VALUES ('"+action.author+"','"+action.description+"','"+date+"');";
+    var query = "INSERT INTO ActionRequest (author, description, date) VALUES ("+
+        connection.escape(action.author)+","+connection.escape(action.description)+",'"+date+"');";
     console.log("[DB]", query);
     connection.query(query,
         function(err, rows, fields) {
