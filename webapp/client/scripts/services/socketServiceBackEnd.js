@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('hxvoteStatsNgApp')
+angular.module('hxvoteBackEndNgApp')
   .factory('socketService', function () {
       var socket = io('localhost:8890');
       return socket;

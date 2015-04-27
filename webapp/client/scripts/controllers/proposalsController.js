@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('hxvoteStatsNgApp')
+angular.module('hxvoteBackEndNgApp')
   .controller('proposalsController', ['$scope', 'socketService', function ($scope, socketService) {
       
       socketService.emit('getProposals');
@@ -9,5 +9,18 @@ angular.module('hxvoteStatsNgApp')
             $scope.proposals = data;
             $scope.$apply(); 
       });
-      
+          
+    $scope.slide = function slide($event, proposal){
+		 var stateSave = proposal.cover;
+		  $scope.proposals.forEach(function(proposal){
+		  	  proposal.cover = false;
+		  });
+        proposal.cover = !stateSave;
+    }
+    
+    $scope.supp = function supp($event, proposal){
+        var index = $scope.proposals.indexOf(proposal);
+        $scope.proposals.splice(index, 1);
+    }
+    
 }]);

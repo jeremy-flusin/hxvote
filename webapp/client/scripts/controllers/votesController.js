@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('hxvoteStatsNgApp')
+angular.module('hxvoteBackEndNgApp')
   .controller('votesController', ['$scope', 'socketService', function ($scope, socketService) {
       
       var invertArray = function invertArray(array){
@@ -25,9 +25,21 @@ angular.module('hxvoteStatsNgApp')
       
       $scope.upOrder = function upOrder(){
             $scope.actions = $scope.actionsCroi;
-          console.log($scope.actionsCroi);
       }
+
+		$scope.supp = function supp($event, action){
+			var index = $scope.actionsDec.indexOf(action);
+			$scope.actionsDec.splice(index, 1);
+			var index = $scope.actionsCroi.indexOf(action);
+			$scope.actionsCroi.splice(index, 1);
+		}
       
-      
+	 $scope.slide = function slide($event, action){
+		 var stateSave = action.cover;
+		  $scope.actions.forEach(function(action){
+		  	  action.cover = false;
+		  });
+        action.cover = !stateSave;
+    }
       
 }]);

@@ -76,9 +76,13 @@ ul.votes li{
 	min-height: 50px;
 }
 
-ul.fullscreen-list li p{
+ul.fullscreen-list li div.proposal p, ul.fullscreen-list li div.action p{
 	margin-left: 10%;
     margin-top: 10px;
+}
+
+ul.fullscreen-list li div.slider{
+    padding-top: 10px;
 }
 
 p.author,p.date,p.votes,p.categoryLabel{
@@ -199,4 +203,43 @@ ul.fullscreen-list a li:hover .icon-nose{
 .form div input{
     height: 40px;
     padding: 0 10px;
+}
+
+.slider-question{
+    text-align: center;
+    color: #fff;
+    font-size: 20px;	
+	font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.slider-buttons{
+    width: 355px;
+    margin: 0 auto;
+}
+
+.slider-button{
+    width: 150px;
+}
+
+.slider-button:first-child{
+    margin-right: 50px;
+}
+
+.black{
+    background-color: #FFF;
+    color: #333;
+}
+
+.white{
+    background-color: #388E3C;
+    color: #FFF;
+}
+
+.covered{
+    background-color: #333;
+}
+
+.slider-actions{
+	padding: 20px;
 }

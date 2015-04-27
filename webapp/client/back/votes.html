@@ -1,0 +1,23 @@
+<div class="thread">
+    <h2><span class="active">VOTES</span></h2>
+     <a ng-click="downOrder()" class="thread-back-button pure-button">&#8593; Croi.</a>
+     <a ng-click="upOrder()" class="thread-back-button pure-button">&#8595; Dec.</a>
+</div>
+<ul class="fullscreen-list votes">
+    <li ng-click="slide($event, action)" ng-repeat="action in actions" ng-class="{'covered': action.cover}">
+		 <div class="action" ng-show="!action.cover">
+					<div>
+						 <p class="categoryLabel">{{action.categoryLabel}}</p>
+						 <p class="votes">{{action.votes}}</p>
+					</div>
+			  <p class="actionLabel">{{action.label}}</p>
+		 </div>
+		 <div class="slider" ng-show="action.cover">
+                <div class="slider-buttons slider-actions">
+                    <button ng-click="play($event, action)" class="pure-button pure-button-primary white slider-button">&#10003; Jouer</button>
+                    <button ng-click="supp($event, action)" class="pure-button pure-button-primary slider-button black ">&#10007; Ignorer</button>
+                </div>
+            </div>
+    </li>
+</ul>
+<hr ng-hide="actions.length > 0" />

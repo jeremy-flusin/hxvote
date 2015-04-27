@@ -13,7 +13,6 @@ angular.module('hxvoteFrontEndNgApp')
       
       $scope.vote = function vote (actionId){
           socketService.emit('vote', actionId);
-          console.log("on passe par la");
       }
       socketService.on('vote_result', function (data) {
             $scope.posted = true;
