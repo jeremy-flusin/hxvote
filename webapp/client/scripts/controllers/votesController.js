@@ -28,10 +28,10 @@ angular.module('hxvoteBackEndNgApp')
       }
 
 		$scope.supp = function supp($event, action){
-			var index = $scope.actionsDec.indexOf(action);
-			$scope.actionsDec.splice(index, 1);
-			var index = $scope.actionsCroi.indexOf(action);
-			$scope.actionsCroi.splice(index, 1);
+		  var index = $scope.actionsDec.indexOf(action);
+		  $scope.actionsDec.splice(index, 1);
+		  var index = $scope.actionsCroi.indexOf(action);
+		  $scope.actionsCroi.splice(index, 1);
 		}
       
 	 $scope.slide = function slide($event, action){

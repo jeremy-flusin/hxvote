@@ -1,11 +1,18 @@
-<html>
+<html ng-app="hxvoteAdminNgApp">
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 		<link href='../styles/reset.css' rel='stylesheet' type='text/css'>
 		<link href='../styles/main-admin.css' rel='stylesheet' type='text/css'>
 		<link href='../styles/on-off-switch.css' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width; initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+        <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="../scripts/app-admin.js"></script>        
+        <script src="../scripts/controllers/editFamilyController.js"></script>
+        <script src="../scripts/controllers/archivesController.js"></script>
+        <script src="../scripts/services/socketServiceAdmin.js"></script>
 	</head>
 	<body>
 		<div class="content">
@@ -20,39 +27,17 @@
                 </label>
             </div>
             
-            <div class="buttons-container">
-                <button class="button button-left pure-button pure-button-primary">Modifier Familles</button>
-                <button class="button button-right pure-button pure-button-primary">Modifier Actions</button>
+            <div class="buttons-container">                
+					<form action="#edit">
+						<button class="button button-left pure-button pure-button-primary">Actions/Familles</button>
+               </form> 
+               <form action="#archives">
+                  <button class="button button-right pure-button pure-button-primary">Archives</button>
+               </form> 
             </div>
-            <div class="thread">
-                <h2><span class="active">FAMILLES</span></h2>
-                <button class="hide thread-back-button pure-button"><</button>
-            </div>
-			<ul class="fullscreen-list">
-				<a href="#">
-                    <li>
-                        <div class="icon-family icon-eye"></div>
-                        <div>Vue</div>
-                    </li>
-                </a>
-				<a href="#">                    
-                    <li>
-                        <div class="icon-family icon-ear"></div>
-                        <div>Ou&iuml;e</div>
-                    </li>
-                </a>
-				<a href="#">
-                    <li>
-                        <div class="icon-family icon-nose"></div>
-                        <div>Odorat</div>
-                    </li>
-                </a>
-				<a href="#">
-                    <li>
-                        <div class="icon-family icon-mouth"></div>
-                        <div>Voix</div>
-                    </li>
-                </a>
+           
+			<div ng-view></div>
+			
 			</ul>
 		</div>
 	</body>

@@ -1,0 +1,18 @@
+<div class="thread">
+    <h2><span class="active">EDITER FAMILLES</span></h2>
+    <button class="hide thread-back-button pure-button"><</button>
+</div>
+<ul class="fullscreen-list">
+    <li class="family" ng-repeat="family in families">
+        <div class="icon-family icon-{{family.icon}}"></div>
+        <div>{{family.label}}</div>
+    </li>
+    <li ng-click="slideNewFamily()" ng-class="{'covered': addingFamily}">
+        <div class="labelNewFamily" ng-show="!addingFamily">+ Nouvelle famille</div>
+        <div ng-show="addingFamily" class="newFamilyForm" >
+            <p>Label </p>
+            <input ng-click="inputFocus($event)" type="text"/>
+            <button ng-click="" class="pure-button pure-button-primary supp-button slider-button">&#10003;Valider</button>
+        </div>
+    </li>
+</ul>

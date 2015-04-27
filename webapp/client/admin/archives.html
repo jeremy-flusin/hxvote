@@ -1,0 +1,21 @@
+<div class="thread">
+    <h2><span class="active">ARCHIVES PUBLIC</span></h2>
+
+    <ul class="fullscreen-list">
+        <li ng-click="slide($event, proposal)" ng-repeat="proposal in proposals" ng-class="{'covered': proposal.cover}">
+            <div class="proposal" ng-show="!proposal.cover">
+                <div>
+                    <p class="author">{{proposal.author}}</p>
+                    <p class="date">{{proposal.date}}</p>
+                </div>
+                <p class="action-description">{{proposal.description}}</p>
+            </div>
+            <div class="slider" ng-show="proposal.cover">
+                <p class="slider-question">Supprimer cette archive ?</p>
+                <div class="slider-buttons">
+                    <button ng-click="supp($event, proposal)" class="pure-button pure-button-primary supp-button slider-button">&#10003; Supprimer</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

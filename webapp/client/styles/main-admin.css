@@ -60,11 +60,11 @@ ul.fullscreen-list{
 	list-style-type: none;
 }
 
-ul.fullscreen-list a:first-child li{
+ul.fullscreen-list li:first-child {
 	border-top: 1px #BBB solid;
 }
 
-ul.fullscreen-list a li{
+ul.fullscreen-list li{
 	border-bottom: 1px #BBB solid;
 	height: 100px;
 	vertical-align: center;
@@ -72,21 +72,49 @@ ul.fullscreen-list a li{
     transition: background-color 0.3s;
 }
 
-ul.fullscreen-list a li:hover{
-	background-color: #B71C1C;
-	color: #fff;
-}
-
-ul.fullscreen-list a li div:first-child{
+ul.fullscreen-list li div:first-child{
 	margin-left: 10%;
 }
 
-ul.fullscreen-list a li div{
+ul.fullscreen-list li.family div, div.labelNewFamily{
 	font-weight: 500;
 	font-size: 20px;
 	line-height: 100px;
     display: inline-block;
     margin-left: 20px;
+}
+ul.votes li{
+	min-height: 50px;
+}
+
+ul.fullscreen-list li div.proposal p, ul.fullscreen-list li div.action p{
+	margin-left: 10%;
+    margin-top: 10px;
+}
+
+ul.fullscreen-list li div.slider{
+    padding-top: 10px;
+}
+
+p.author,p.date,p.votes,p.categoryLabel{
+    display: inline-block;
+}
+
+p.author, p.categoryLabel{
+    font-size: 20px;	
+	font-weight: 100;
+}
+p.date,p.votes{
+    font-size: 10px;
+    font-weight: 500;
+    float: right;
+    margin-right: 20px;
+}
+p.votes{
+  font-size: 20px;
+}
+p.action-description, p.actionLabel{
+    margin-bottom: 10px;
 }
 
 .icon-family{
@@ -94,31 +122,6 @@ ul.fullscreen-list a li div{
     height: 32px;
     vertical-align: middle;
     margin-bottom: 10px;
-}
-
-.icon-eye{
-    background-image: url('../img/eye-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-eye{
-    background-image: url('../img/eye-icon-white.png');
-}
-.icon-ear{
-    background-image: url('../img/ear-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-ear{
-    background-image: url('../img/ear-icon-white.png');
-}
-.icon-mouth{
-    background-image: url('../img/mouth-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-mouth{
-    background-image: url('../img/mouth-icon-white.png');
-}
-.icon-nose{
-    background-image: url('../img/nose-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-nose{
-    background-image: url('../img/nose-icon-white.png');
 }
 
 .buttons-container{
@@ -187,4 +190,64 @@ ul.fullscreen-list a li:hover .icon-nose{
 .form div input{
     height: 40px;
     padding: 0 10px;
+}
+
+.slider-question{
+    text-align: center;
+    color: #fff;
+    font-size: 20px;	
+	font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.slider-buttons{
+    width: 150px;
+    margin: 0 auto;
+}
+
+.slider-button{
+    width: 150px;
+}
+
+.slider-button:first-child{
+    margin-right: 50px;
+}
+
+.black{
+    background-color: #FFF;
+    color: #333;
+}
+
+.supp-button{
+    background-color: #B71C1C;
+    color: #FFF;
+}
+
+.newFamilyForm{
+    display: block;
+    line-height: 100px;
+    vertical-align: middle;
+}
+
+.covered{
+    background-color: #333;
+}
+
+.newFamilyForm p{
+    margin-left: 10%;
+    font-size: 20px;	
+    color: #FFF;
+    display: inline-block;
+}
+
+.newFamilyForm input{
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.newFamilyForm button{
+    display: inline-block;
+}
+.slider-actions{
+	padding: 20px;
 }
