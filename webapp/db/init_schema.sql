@@ -19,6 +19,9 @@ CREATE TABLE `hxvote`.`Category` (
 `label` VARCHAR(255) NULL,
 PRIMARY KEY (`id`));
 
+CREATE TABLE `hxvote`.`Administration` (
+`frontAccessible` INT NOT NULL );
+
 
 
 

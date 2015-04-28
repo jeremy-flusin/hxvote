@@ -2,6 +2,7 @@
 
 angular.module('hxvoteFrontEndNgApp')
   .controller('actionController', ['$scope', 'socketService', '$routeParams', function ($scope, socketService, $routeParams) {
+            
       $scope.familyLabel = $routeParams.familyLabel;
       $scope.posted = false;
       

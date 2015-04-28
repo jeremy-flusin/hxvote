@@ -10,17 +10,18 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
         <script src="../scripts/app-admin.js"></script>        
+        <script src="../scripts/controllers/adminController.js"></script>
         <script src="../scripts/controllers/editFamilyController.js"></script>
         <script src="../scripts/controllers/archivesController.js"></script>
         <script src="../scripts/services/socketServiceAdmin.js"></script>
 	</head>
 	<body>
-		<div class="content">
+		<div ng-controller="backController" class="content">
 			<h1>HYPNOSE<strong>X</strong>PERIENCE</h1>
             <h1 class="add">Administration</h1>
             
             <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                <input ng-model="checked" ng-click="updateAccess(!checked)" type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-checked="adminParams.frontAccessible">
                 <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>

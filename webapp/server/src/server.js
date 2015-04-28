@@ -57,6 +57,16 @@ ioserver.on('connection', function(socket) {
             socket.emit('vote_result', bool);
         });
     });
+    socket.on('getAdminParams', function() {
+        db.getAdminParams(function(result){
+            socket.emit('getAdminParams_result', result);
+        });
+    });
+    socket.on('setAdminParams', function(adminParams) {
+        db.setAdminParams(adminParams, function(bool){
+            socket.emit('setAdminParams_result', bool);
+        });
+    });
 });
 server.listen(++port);
 

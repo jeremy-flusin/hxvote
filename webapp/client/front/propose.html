@@ -1,7 +1,7 @@
-<form action="index.html">
+<form action="#/family">
     <div class="thread">
         <h2><span class="active">PROPOSER UNE ACTION</span></h2>
-        <button class="thread-back-button pure-button"><</button>
+        <button class="thread-back-button pure-button">&#66306; RETOUR</button>
     </div>
 </form>
 <hr>
@@ -10,6 +10,9 @@
     <div class="form">
         <div><span>VOTRE PRENOM (optionnel)</span><input ng-model="action.author" style="text"></input></div>
         <div><span>DESCRIPTION DE L'ACTION</span><textarea ng-model="action.description"></textarea></div>
-        <button class="form-button pure-button-primary pure-button">VALIDER</button>
+        <button ng-init="action.description = ''"
+                ng-model="action.description" 
+                ng-disabled="action.description.length <= 0" 
+                class="form-button pure-button-primary pure-button">VALIDER</button>
     </div>
 </form>

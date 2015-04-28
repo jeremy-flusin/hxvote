@@ -82,11 +82,39 @@ var getActionsOrderedByVotes = function getActionsOrderedByVotes(callback){
     });
 }
 
+var setAdminParams = function setAdminParams(adminParams, callback){
+    var query = "UPDATE Administration SET frontAccessible=" + adminParams.frontAccessible+";";
+    console.log("[DB]", query);
+    connection.query(query,
+        function(err, rows, fields) {
+            if (err) {
+                console.log("[DB] Fail !");
+                callback(false);
+                throw err;
+            }else{
+                console.log("[DB] Success !");
+                callback(true);
+            }
+    });
+}
+
+var getAdminParams = function getAdminParams(callback){
+    var query = "SELECT frontAccessible FROM Administration;";
+    console.log("[DB]", query);    
+    connection.query(query, function(err, rows, fields) {
+        if (err) throw err;
+        callback(rows[0]);
+        console.log(rows[0]);
+    });
+}
+
 module.exports = {
     getCategories: getCategories,
     getActionsOfCategory: getActionsOfCategory,
     getActionsOrderedByVotes: getActionsOrderedByVotes,
     getProposals: getProposals,
     voteForAction: voteForAction,
-    saveActionRequest: saveActionRequest
+    saveActionRequest: saveActionRequest,
+    getAdminParams: getAdminParams,
+    setAdminParams: setAdminParams
 };

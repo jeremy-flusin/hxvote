@@ -9,17 +9,18 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
         <script src="../scripts/app-front-end.js"></script>
+        <script src="../scripts/controllers/accessController.js"></script>
         <script src="../scripts/controllers/familyController.js"></script>
         <script src="../scripts/controllers/proposeController.js"></script>
         <script src="../scripts/controllers/actionController.js"></script>
         <script src="../scripts/services/socketServiceFrontEnd.js"></script>
         
 	</head>
-	<body>
+	<body ng-controller="accessController">
 		<div class="content">
 			<h1>HYPNOSE<strong>X</strong>PERIENCE</h1>
             <h1 class="add">by Pierr Cika</h1>
-            <div class="buttons-container">
+            <div class="buttons-container" ng-show="frontAccessible">
                 <form action="#/propose">
                     <button class="button button-left pure-button pure-button-primary">+ ACTION</button>
                 </form>
@@ -30,7 +31,13 @@
 			</ul>
 		</div>
     
-        <div ng-view></div>
-
+        <div ng-view ng-show="frontAccessible"></div>
+         <div class="denied-panel" ng-show="!frontAccessible">
+            <h1>Patience, vous allez bientôt pouvoir voter pour des actions, et proposer les votres !</h1>
+            <h2>Rafraichissez cette page quand je vous le demanderai.</h2>                
+            <form action="index.html">
+               <button class="button pure-button pure-button-primary">Rafraichir</button>
+            </form>
+         </div>
 	</body>
 </html>

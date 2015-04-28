@@ -149,10 +149,12 @@ ul.fullscreen-list a li:hover .icon-nose{
 }
 
 .thread-back-button{
-    display:inline-block;
-    height: 30px;
+    color: #0097a7;
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 20px;
     margin-left: 20px;
-    vertical-align: top;
+    margin-top: 13px;
 }
 
 .form div{
@@ -198,4 +200,16 @@ div.thanks{
 	font-weight: 100; 
     text-align: center;
     color: #0097A7;
+}
+
+div.denied-panel h2 {
+   text-align: center; 
+   margin: 10px 0;
+}
+
+div.denied-panel form button{
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    width: 150px;
 }
