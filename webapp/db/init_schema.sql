@@ -14,6 +14,13 @@ CREATE TABLE `hxvote`.`ActionRequest` (
 `date` DATE NULL,
 PRIMARY KEY (`id`));
 
+CREATE TABLE `hxvote`.`ActionRequestArchived` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`author` VARCHAR(255) NULL,
+`description` VARCHAR(2048) NULL,
+`date` DATE NULL,
+PRIMARY KEY (`id`));
+
 CREATE TABLE `hxvote`.`Category` (
 `id` INT NOT NULL AUTO_INCREMENT,
 `label` VARCHAR(255) NULL,

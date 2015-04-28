@@ -20,7 +20,25 @@ angular.module('hxvoteBackEndNgApp')
     
     $scope.supp = function supp($event, proposal){
         var index = $scope.proposals.indexOf(proposal);
-        $scope.proposals.splice(index, 1);
+        $scope.proposals.splice(index, 1);         
+         socketService.emit('deleteProposal', proposal);
+         socketService.on('deleteProposal_result', function (bool) {
+            console.log("deleted from proposals: ", bool);
+         });
+    }
+        
+    $scope.save = function supp($event, proposal){
+         socketService.emit('archiveActionRequest', proposal);
+         socketService.on('archiveActionRequest_result', function (bool) {
+            console.log("archived: ", bool);
+         });         
+         socketService.emit('deleteProposal', proposal);
+         socketService.on('deleteProposal_result', function (bool) {
+            console.log("deleted from proposals: ", bool);
+         });
+         
+         var index = $scope.proposals.indexOf(proposal);
+         $scope.proposals.splice(index, 1);
     }
     
 }]);

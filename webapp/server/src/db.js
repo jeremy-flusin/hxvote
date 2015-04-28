@@ -29,9 +29,67 @@ var getProposals = function getProposals(callback){
     
 }
 
+var getArchivedProposals = function getArchivedProposals(callback){
+    connection.query('SELECT * FROM ActionRequestArchived', function(err, rows, fields) {
+        if (err) throw err;
+        callback(rows);
+    });
+    
+}
+
 var saveActionRequest = function saveActionRequest(action, callback){
     var date = utils.getCurrentDate();
     var query = "INSERT INTO ActionRequest (author, description, date) VALUES ("+
+        connection.escape(action.author)+","+connection.escape(action.description)+",'"+date+"');";
+    console.log("[DB]", query);
+    connection.query(query,
+        function(err, rows, fields) {
+            if (err) {
+                console.log("[DB] Fail !");
+                callback(false);
+                throw err;
+            }else{
+                console.log("[DB] Success !");
+                callback(true);
+            }
+    });
+}
+
+var deleteActionRequest = function deleteActionRequest(action, callback){
+   var query = "DELETE FROM ActionRequest WHERE id="+action.id;
+   console.log("[DB]", query);
+   connection.query(query,
+        function(err, rows, fields) {
+            if (err) {
+                console.log("[DB] Fail !");
+                callback(false);
+                throw err;
+            }else{
+                console.log("[DB] Success !");
+                callback(true);
+            }
+    });
+}
+
+var deleteArchivedActionRequest = function deleteArchivedActionRequest(action, callback){
+   var query = "DELETE FROM ActionRequestArchived WHERE id="+action.id;
+   console.log("[DB]", query);
+   connection.query(query,
+        function(err, rows, fields) {
+            if (err) {
+                console.log("[DB] Fail !");
+                callback(false);
+                throw err;
+            }else{
+                console.log("[DB] Success !");
+                callback(true);
+            }
+    });
+}
+
+var archiveActionRequest = function archiveActionRequest(action, callback){
+    var date = utils.getCurrentDate();
+    var query = "INSERT INTO ActionRequestArchived (author, description, date) VALUES ("+
         connection.escape(action.author)+","+connection.escape(action.description)+",'"+date+"');";
     console.log("[DB]", query);
     connection.query(query,
@@ -113,8 +171,12 @@ module.exports = {
     getActionsOfCategory: getActionsOfCategory,
     getActionsOrderedByVotes: getActionsOrderedByVotes,
     getProposals: getProposals,
+    getArchivedProposals: getArchivedProposals,
     voteForAction: voteForAction,
     saveActionRequest: saveActionRequest,
+    deleteActionRequest: deleteActionRequest,
+    archiveActionRequest: archiveActionRequest,
+    deleteArchivedActionRequest: deleteArchivedActionRequest,
     getAdminParams: getAdminParams,
     setAdminParams: setAdminParams
 };

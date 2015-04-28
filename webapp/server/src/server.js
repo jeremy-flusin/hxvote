@@ -71,6 +71,26 @@ ioserver.on('connection', function(socket) {
            socket.emit('getProposals_result', result); 
         });
     });
+    socket.on('deleteProposal', function(action){
+         db.deleteActionRequest(action, function(bool){
+            socket.emit('deleteProposal_result', bool);
+         });
+    });   
+    socket.on('archiveActionRequest', function(action){
+         db.archiveActionRequest(action, function(bool){
+            socket.emit('archiveActionRequest_result', bool);
+         });
+    });
+    socket.on('getArchivedProposals', function() {
+         db.getArchivedProposals(function(result){
+           socket.emit('getArchivedProposals_result', result); 
+        });
+    });
+    socket.on('deleteArchivedProposal', function(action){
+         db.deleteArchivedActionRequest(action, function(bool){
+            socket.emit('deleteArchivedProposal_result', bool);
+         });
+    });   
     socket.on('vote', function(actionId) {
         db.voteForAction(actionId, function(bool){
             socket.emit('vote_result', bool);

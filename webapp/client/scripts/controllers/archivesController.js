@@ -3,8 +3,8 @@
 angular.module('hxvoteAdminNgApp')
   .controller('archivesController', ['$scope', 'socketService', function ($scope, socketService) {
       
-      socketService.emit('getProposals');
-      socketService.on('getProposals_result', function (data) {
+      socketService.emit('getArchivedProposals');
+      socketService.on('getArchivedProposals_result', function (data) {
           console.log(data);
             $scope.proposals = data;
             $scope.$apply(); 
@@ -21,6 +21,10 @@ angular.module('hxvoteAdminNgApp')
     $scope.supp = function supp($event, proposal){
         var index = $scope.proposals.indexOf(proposal);
         $scope.proposals.splice(index, 1);
-    }
+         socketService.emit('deleteArchivedProposal', proposal);
+         socketService.on('deleteArchivedProposal_result', function (bool) {
+            console.log("deleted from archived proposals: ", bool);
+         });
+    } 
     
 }]);
