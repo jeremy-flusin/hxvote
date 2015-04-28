@@ -1,10 +1,15 @@
 'use strict';
 var koa = require('koa'),
+    auth = require('koa-basic-auth'),
+    mount = require('koa-mount'),
     serve = require('koa-static'),
     http = require('http'),
     path = require("path"),
     io = require('socket.io'),
     db = require('./db.js');
+
+var username = "admin";
+var password = "zde84pzk";
 
 var port = process.argv[2] || 8888;
 
@@ -16,7 +21,21 @@ app.use(function*(next){
     yield next;
     console.log("[INFO] ending serving");    
 });
-
+app.use(function *(next){
+  try {
+    yield next;
+  } catch (err) {
+    if (401 == err.status) {
+      this.status = 401;
+      this.set('WWW-Authenticate', 'Basic');
+      this.body = 'Acces refuse.';
+    } else {
+      throw err;
+    }
+  }
+});
+app.use(mount('/admin', auth({ name: username, pass: password })));
+app.use(mount('/back', auth({ name: username, pass: password })));
 app.use(serve(path.resolve(__dirname, '../../client/')));
 app.listen(port);
 
@@ -72,4 +91,6 @@ server.listen(++port);
 
 console.log("[INFO] \t... Socket connections at http://localhost:" + port + "/");
 console.log("[INFO] \t ...Listening on websockets.");
+console.log("[INFO] Admin et BackEnd pages can be accessed with:");
+console.log("[INFO] \t Username:  "+username+"     Password:  "+password);
 
