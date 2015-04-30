@@ -14,7 +14,9 @@ var connection = mysql.createConnection({
 connection.connect();
 
 var getCategories = function getCategories(callback){
-    connection.query('SELECT * FROM Category', function(err, rows, fields) {
+    var query = "SELECT * FROM Category;";
+    console.log("[DB]", query);
+    connection.query(query, function(err, rows, fields) {
         if (err) throw err;
         callback(rows);
     });
@@ -22,7 +24,9 @@ var getCategories = function getCategories(callback){
 }
 
 var getProposals = function getProposals(callback){
-    connection.query('SELECT * FROM ActionRequest', function(err, rows, fields) {
+    var query = "SELECT * FROM ActionRequest;";
+    console.log("[DB]", query);
+    connection.query(query, function(err, rows, fields) {
         if (err) throw err;
         callback(rows);
     });
@@ -30,7 +34,9 @@ var getProposals = function getProposals(callback){
 }
 
 var getArchivedProposals = function getArchivedProposals(callback){
-    connection.query('SELECT * FROM ActionRequestArchived', function(err, rows, fields) {
+    var query = "SELECT * FROM ActionRequestArchived;";    
+    console.log("[DB]", query);
+    connection.query(query, function(err, rows, fields) {
         if (err) throw err;
         callback(rows);
     });

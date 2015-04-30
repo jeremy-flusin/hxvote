@@ -78,6 +78,9 @@ ul.fullscreen-list a li:hover{
 ul.fullscreen-list a li.red:hover{
 	background-color: #B71C1C;
 }
+ul.fullscreen-list a li.black:hover{
+	background-color: #333;
+}
 ul.fullscreen-list a li.green:hover{
 	background-color: #388E3C;
 }

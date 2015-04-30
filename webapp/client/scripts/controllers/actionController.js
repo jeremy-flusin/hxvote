@@ -14,7 +14,7 @@ angular.module('hxvoteFrontEndNgApp')
       
       $scope.vote = function vote (action){
           if(!action.voted){
-              socketService.emit('vote', action.actionId);
+              socketService.emit('vote', action.id);
               action.voted = true;
           }
       }

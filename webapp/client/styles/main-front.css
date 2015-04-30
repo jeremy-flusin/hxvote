@@ -89,38 +89,6 @@ ul.fullscreen-list a li div{
     margin-left: 20px;
 }
 
-.icon-family{
-    width: 32px;
-    height: 32px;
-    vertical-align: middle;
-    margin-bottom: 10px;
-}
-
-.icon-eye{
-    background-image: url('../img/eye-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-eye{
-    background-image: url('../img/eye-icon-white.png');
-}
-.icon-ear{
-    background-image: url('../img/ear-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-ear{
-    background-image: url('../img/ear-icon-white.png');
-}
-.icon-mouth{
-    background-image: url('../img/mouth-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-mouth{
-    background-image: url('../img/mouth-icon-white.png');
-}
-.icon-nose{
-    background-image: url('../img/nose-icon.png');
-}
-ul.fullscreen-list a li:hover .icon-nose{
-    background-image: url('../img/nose-icon-white.png');
-}
-
 .buttons-container{
     width: 100%;
     margin: 0 auto 150px auto;
