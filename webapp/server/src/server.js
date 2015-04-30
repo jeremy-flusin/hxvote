@@ -56,9 +56,9 @@ ioserver.on('connection', function(socket) {
            socket.emit('getActionsOfCategory_result', result); 
         });
     });    
-    socket.on('getActionsOrderedByVotes', function() {
-      	db.getActionsOrderedByVotes(function(result){
-           socket.emit('getActionsOrderedByVotes_result', result); 
+    socket.on('getActionsOrderedByVotes', function(order) {
+      	db.getActionsOrderedByVotes(order, function(result){
+           socket.emit('getActionsOrderedByVotes_result', result, order); 
         });
     });
     socket.on('propose', function(action) {
@@ -94,6 +94,11 @@ ioserver.on('connection', function(socket) {
     socket.on('vote', function(actionId) {
         db.voteForAction(actionId, function(bool){
             socket.emit('vote_result', bool);
+        });
+    });   
+    socket.on('resetVotes', function() {
+        db.resetActionVotes(function(bool){
+            socket.emit('resetVotes_result', bool);
         });
     });
     socket.on('getAdminParams', function() {

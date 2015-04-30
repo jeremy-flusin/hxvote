@@ -20,6 +20,6 @@ angular.module('hxvoteAdminNgApp')
       };
       socketService.emit('setAdminParams', mockAdminParams);
       socketService.emit('getAdminParams');
-   }
+   }  
    
 }]);

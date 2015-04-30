@@ -213,3 +213,18 @@ div.denied-panel form button{
     text-align: center;
     width: 150px;
 }
+
+div.voted{
+    color: #0097A7;
+}
+
+div.voted:before{
+    margin-right: 20px;
+    margin-left: -20px;
+    content:"\2713";
+    
+}
+
+ul.fullscreen-list a li:hover div.voted{
+	color: #fff;
+}

@@ -6,6 +6,6 @@
 </form>
 <div ng-show="posted" class="thanks">Merci d'avoir voté !</div>
 <ul class="fullscreen-list">
-    <a ng-click="vote(action.id)" ng-repeat="action in actions"><li><div>{{action.label}}</div></li></a>
+    <a ng-click="vote(action)" ng-repeat="action in actions"><li><div  ng-class="{'voted': action.voted}">{{action.label}}</div></li></a>
 </ul>
 <hr ng-hide="actions.length > 0" />

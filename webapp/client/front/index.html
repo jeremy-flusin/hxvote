@@ -16,7 +16,7 @@
         <script src="../scripts/services/socketServiceFrontEnd.js"></script>
         
 	</head>
-	<body ng-controller="accessController">
+	<body ng-controller="accessController" ng-show="accessLoaded">
 		<div class="content">
 			<h1>HYPNOSE<strong>X</strong>PERIENCE</h1>
             <h1 class="add">by Pierr Cika</h1>
@@ -33,10 +33,10 @@
     
         <div ng-view ng-show="frontAccessible"></div>
          <div class="denied-panel" ng-show="!frontAccessible">
-            <h1>Patience, vous allez bientôt pouvoir voter pour des actions, et proposer les votres !</h1>
-            <h2>Rafraichissez cette page quand je vous le demanderai.</h2>                
+            <h2>Patience, vous allez bientôt pouvoir découvrir une nouvelle dimension du spectacle interactif...</h2><br/>
+            <h2>Appuyez sur ce bouton je vous le demanderai.</h2>                
             <form action="index.html">
-               <button class="button pure-button pure-button-primary">Rafraichir</button>
+               <button class="button pure-button pure-button-primary">Accéder à HX</button>
             </form>
          </div>
 	</body>

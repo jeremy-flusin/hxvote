@@ -2,22 +2,20 @@
 
 angular.module('hxvoteBackEndNgApp')
   .controller('votesController', ['$scope', 'socketService', function ($scope, socketService) {
-      
-      var invertArray = function invertArray(array){
-        var inverted = [];
-        array.forEach(function(item, index){
-            inverted[array.length - index - 1] = array[index];
-        });
-        return inverted;
-      }
-      
-      socketService.emit('getActionsOrderedByVotes');
-      socketService.on('getActionsOrderedByVotes_result', function (data) {
+            
+      socketService.on('getActionsOrderedByVotes_result', function (data, order) {
             $scope.actions = data;
-            $scope.actionsDec = data;
-            $scope.actionsCroi = invertArray(data);
-            $scope.$apply(); 
+          
+            if(order == "DESC"){
+               $scope.actionsCroi = data;
+            }else{
+               $scope.actionsDec = data;
+            }
+                        
+          $scope.$apply(); 
       });
+      socketService.emit('getActionsOrderedByVotes', "ASC");
+      socketService.emit('getActionsOrderedByVotes', "DESC");
       
       $scope.downOrder = function downOrder(){
             $scope.actions = $scope.actionsDec;
@@ -41,5 +39,14 @@ angular.module('hxvoteBackEndNgApp')
 		  });
         action.cover = !stateSave;
     }
+     
+     $scope.resetActionVotes = function resetActionVotes(){
+         socketService.emit('resetVotes');
+         socketService.on('resetVotes_results', function (bool) {
+            console.log("Reseting votes:", bool);
+         });
+         socketService.emit('getActionsOrderedByVotes', "ASC");
+         socketService.emit('getActionsOrderedByVotes', "DESC");
+     }
       
 }]);

@@ -2,10 +2,11 @@
 
 angular.module('hxvoteAdminNgApp')
   .controller('archivesController', ['$scope', 'socketService', function ($scope, socketService) {
+   
+      $scope.proposalsView = true;
       
       socketService.emit('getArchivedProposals');
       socketService.on('getArchivedProposals_result', function (data) {
-          console.log(data);
             $scope.proposals = data;
             $scope.$apply(); 
       });
@@ -26,5 +27,30 @@ angular.module('hxvoteAdminNgApp')
             console.log("deleted from archived proposals: ", bool);
          });
     } 
+    
+    var invertArray = function invertArray(array){
+        var inverted = [];
+        array.forEach(function(item, index){
+            inverted[array.length - index - 1] = array[index];
+        });
+        return inverted;
+      }
+      
+      socketService.emit('getActionsOrderedByVotes');
+      socketService.on('getActionsOrderedByVotes_result', function (data) {          
+          console.log(data);
+            $scope.actions = data;
+            $scope.actionsDec = data;
+            $scope.actionsCroi = invertArray(data);
+            $scope.$apply(); 
+      });
+      
+      $scope.downOrder = function downOrder(){
+            $scope.actions = $scope.actionsDec;
+      } 
+      
+      $scope.upOrder = function upOrder(){
+            $scope.actions = $scope.actionsCroi;
+      }
     
 }]);

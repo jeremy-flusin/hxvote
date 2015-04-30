@@ -251,3 +251,16 @@ p.action-description, p.actionLabel{
 .slider-actions{
 	padding: 20px;
 }
+
+button.inverted{
+    color: #FFF;
+    border: 1px solid #FFF;
+    background-color: #BBB;
+}
+
+.secondary{
+    margin: -50px 5px 50px 5px;    
+    color: #BBB;
+    border: 1px solid #BBB;
+    background-color: #FFF;
+}

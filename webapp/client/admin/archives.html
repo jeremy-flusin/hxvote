@@ -1,6 +1,11 @@
-<div class="thread">
-    <h2><span class="active">ARCHIVES PUBLIC</span></h2>
-
+<div class="buttons-container">                
+    <button ng-click="proposalsView=true" ng-class="{'inverted': proposalsView}" class="secondary button button-left pure-button pure-button-primary">Arch. Public</button>
+    <button ng-click="proposalsView=false" ng-class="{'inverted': !proposalsView}" class="secondary button button-right pure-button pure-button-primary">Stats Votes</button>
+</div>
+<div ng-show="proposalsView">
+    <div class="thread">
+        <h2><span class="active">ARCHIVES PUBLIC</span></h2>
+    </div>
     <ul class="fullscreen-list">
         <li ng-click="slide($event, proposal)" ng-repeat="proposal in proposals" ng-class="{'covered': proposal.cover}">
             <div class="proposal" ng-show="!proposal.cover">
@@ -18,4 +23,29 @@
             </div>
         </li>
     </ul>
+</div>
+<div ng-show="!proposalsView">
+    <div class="thread"> 
+        <h2><span class="active">STATS VOTES</span></h2>
+         <a ng-click="downOrder()" class="thread-back-button pure-button">&#8593; Croi.</a>
+         <a ng-click="upOrder()" class="thread-back-button pure-button">&#8595; Dec.</a>
+    </div>
+    <ul class="fullscreen-list votes">
+        <li ng-click="slide($event, action)" ng-repeat="action in actions" ng-class="{'covered': action.cover}">
+             <div class="action" ng-show="!action.cover">
+                        <div>
+                             <p class="categoryLabel">{{action.categoryLabel}}</p>
+                             <p class="votes">{{action.archivedVotes}}</p>
+                        </div>
+                  <p class="actionLabel">{{action.label}}</p>
+             </div>
+             <div class="slider" ng-show="action.cover">
+                    <div class="slider-buttons slider-actions">
+                        <button ng-click="play($event, action)" class="pure-button pure-button-primary white slider-button">&#10003; Jouer</button>
+                        <button ng-click="supp($event, action)" class="pure-button pure-button-primary slider-button black ">&#10007; Ignorer</button>
+                    </div>
+                </div>
+        </li>
+    </ul>
+    <hr ng-hide="actions.length > 0" />
 </div>

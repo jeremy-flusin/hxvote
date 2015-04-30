@@ -106,7 +106,7 @@ var archiveActionRequest = function archiveActionRequest(action, callback){
 }
 
 var getActionsOfCategory = function getActionsOfCategory(category, callback){
-    var query = "SELECT a.id, a.category_id, a.label, a.votes FROM Action AS a, Category AS c WHERE a.category_id = c.id AND c.label ='"+category+"';";
+    var query = "SELECT a.id, a.category_id, a.label, a.votes, a.archivedVotes FROM Action AS a, Category AS c WHERE a.category_id = c.id AND c.label ='"+category+"';";
     console.log("[DB]", query);
     connection.query(query, function(err, rows, fields) {
         if (err) throw err;
@@ -115,7 +115,7 @@ var getActionsOfCategory = function getActionsOfCategory(category, callback){
 }
 
 var voteForAction = function voteForAction(actionId, callback){
-    var query = "UPDATE Action SET votes=votes+1 WHERE id="+actionId+";";
+    var query = "UPDATE Action SET votes=votes+1, archivedVotes=archivedVotes+1 WHERE id="+actionId+";";
     console.log("[DB]", query);
     connection.query(query,
         function(err, rows, fields) {
@@ -130,8 +130,24 @@ var voteForAction = function voteForAction(actionId, callback){
     });
 }
 
-var getActionsOrderedByVotes = function getActionsOrderedByVotes(callback){
-    var query = "SELECT a.id, a.label, a.votes, c.id as categoryId, c.label AS categoryLabel FROM Action AS a, Category AS c WHERE a.category_id = c.id ORDER BY a.votes";
+var resetActionVotes = function resetActionVotes(callback){
+    var query = "UPDATE Action SET votes=0";    
+    console.log("[DB]", query);
+    connection.query(query,
+        function(err, rows, fields) {
+            if (err) {
+                console.log("[DB] Fail !");
+                callback(false);
+                throw err;
+            }else{
+                console.log("[DB] Success !");
+                callback(true);
+            }
+    });
+}
+
+var getActionsOrderedByVotes = function getActionsOrderedByVotes(order, callback){
+    var query = "SELECT a.id, a.label, a.votes, a.archivedVotes, c.id as categoryId, c.label AS categoryLabel FROM Action AS a, Category AS c WHERE a.category_id = c.id AND a.votes != 0 ORDER BY c.id ASC, a.votes "+ order +";"
     console.log("[DB]", query);
     connection.query(query, function(err, rows, fields) {
         if (err) throw err;
@@ -173,6 +189,7 @@ module.exports = {
     getProposals: getProposals,
     getArchivedProposals: getArchivedProposals,
     voteForAction: voteForAction,
+    resetActionVotes: resetActionVotes,
     saveActionRequest: saveActionRequest,
     deleteActionRequest: deleteActionRequest,
     archiveActionRequest: archiveActionRequest,
