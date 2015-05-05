@@ -5,9 +5,12 @@
   "dependencies": {
     "koa": "0.12.2",
     "koa-static": " 1.4.7",
+    "koa-basic-auth": "*",
+    "koa-mount": "*",
     "mysql": "2.5.1",
     "bluebird": "*",
-    "socket.io": "1.1.0"
+    "socket.io": "1.1.0",
+    "forever": "*"
   },
   "devDependencies": {
   },

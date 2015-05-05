@@ -5,3 +5,5 @@ INSERT INTO `hxvote`.`Category` (`label`) VALUES ('Ouïe');
 
 INSERT INTO `hxvote`.`Action` (`category_id`, `label`) VALUES (1, 'Boule de feu');
 INSERT INTO `hxvote`.`Action` (`category_id`, `label`) VALUES (1, 'Boule de glace');
+
+INSERT INTO `hxvote`.`Administration` (`frontAccessible`) VALUES (1);
