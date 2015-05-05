@@ -1,5 +1,6 @@
 'use strict';
 var koa = require('koa'),
+    router = require('koa-router')(),
     auth = require('koa-basic-auth'),
     mount = require('koa-mount'),
     serve = require('koa-static'),
@@ -16,11 +17,28 @@ var port = process.argv[2] || 8888;
 console.log("[INFO] Launching HX Vote Server...");
 var app = koa();
 
-app.use(function*(next){
-    console.log("[INFO] starting serving : " + this.originalUrl );
-    yield next;
-    console.log("[INFO] ending serving");    
+router.get('/front', function*(next){
+    console.log("[INFO] Serving : " + this.originalUrl );
+    yield next; 
 });
+router.get('/admin', function*(next){
+    console.log("[INFO] Serving : " + this.originalUrl );
+    yield next; 
+});
+router.get('/back', function*(next){
+    console.log("[INFO] Serving : " + this.originalUrl );
+    yield next; 
+});
+
+router.all('/', function *() {
+  console.log("REDIRECTING");  
+  this.redirect('/front/index.html');
+  this.status = 301;  
+});
+
+app.use(router.routes());
+app.use(router.allowedMethods());
+
 app.use(function *(next){
   try {
     yield next;
@@ -36,7 +54,7 @@ app.use(function *(next){
 });
 app.use(mount('/admin', auth({ name: username, pass: password })));
 app.use(mount('/back', auth({ name: username, pass: password })));
-app.use(serve(path.resolve(__dirname, '../../client/')));
+app.use(serve(path.resolve(__dirname, '../../client')));
 app.listen(port);
 
 console.log("[INFO] \t... Static file server running at http://localhost:" + port + "/");
