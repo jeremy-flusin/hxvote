@@ -1,4 +1,4 @@
-var socket = io('localhost:8890');
+var socket = io('flusin.ovh:8890');
 
 var users = 0;
 var usersMax = 250;
