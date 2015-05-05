@@ -2,7 +2,7 @@
 
 angular.module('hxvoteAdminNgApp')
   .factory('socketService', function () {
-      var socket = io('localhost:8890');
+      var socket = io('151.80.159.59:8890');
       
       window.onbeforeunload = function(e) {
           socket.disconnect();
