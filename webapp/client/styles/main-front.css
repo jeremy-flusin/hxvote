@@ -196,3 +196,15 @@ div.voted:before{
 ul.fullscreen-list a li:hover div.voted{
 	color: #fff;
 }
+
+
+.buttons-about{
+    margin: 0 auto;
+}
+
+button.button-about{
+    background-color: #0097A7;
+    width: 150px;
+    height: 35px;
+    margin-right: 10px;
+}

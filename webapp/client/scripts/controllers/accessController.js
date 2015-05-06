@@ -7,6 +7,7 @@ angular.module('hxvoteFrontEndNgApp')
       
    socketService.emit('getAdminParams');
    socketService.on('getAdminParams_result', function (data) {
+        console.log(data.frontAccessible);   
       $scope.frontAccessible = data.frontAccessible;
       $scope.accessLoaded = true; 
       $scope.$apply();
