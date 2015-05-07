@@ -198,8 +198,9 @@ ul.fullscreen-list a li:hover div.voted{
 }
 
 
-.buttons-about{
+.content{
     margin: 0 auto;
+    text-align: center;
 }
 
 button.button-about{
@@ -207,4 +208,25 @@ button.button-about{
     width: 150px;
     height: 35px;
     margin-right: 10px;
+}
+
+.crop{
+    overflow: hidden;    
+    margin: 20px auto;    
+    height: 200px;    
+    width: 100%;
+    box-shadow: 0px 0px 10px #0097A7; 
+   -webkit-box-shadow: 0px 0px 10px #0097A7; 
+   -ms-box-shadow: 0px 0px 10px #0097A7;
+   -o-box-shadow: 0px 0px 10px #0097A7;  
+}
+
+.crop img {
+    width: 100%;
+    margin-top: -50px;
+}
+
+.buttons-about{
+    width: 323px;
+    margin: 20px auto 0 auto;
 }
