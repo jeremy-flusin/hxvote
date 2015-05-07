@@ -4,8 +4,12 @@
         <button class="thread-back-button pure-button">&#66306; RETOUR</button>
     </div>
 </form>
-<div ng-show="posted" class="thanks">Merci d'avoir voté !</div>
-<ul class="fullscreen-list">
-    <a ng-click="vote(action)" ng-repeat="action in actions"><li><div  ng-class="{'voted': action.voted}">{{action.label}}</div></li></a>
+<div ng-show="posted" class="thanks">Merci d'avoir voté !</div><br ng-show="posted" />
+<div ng-show="posted" class="thanks">Vous allez être redirigé et pourrez voter à nouveau.</div><br ng-show="posted" />
+<ul ng-show="!posted" class="fullscreen-list">
+    <a ng-click="vote(action)" ng-repeat="action in actions"><li><div>{{action.label}}</div></li></a>
+</ul>
+<ul ng-show="posted" class="fullscreen-list">
+    <a ng-click="vote(action)" ng-repeat="action in actions" ng-if="action.voted"><li><div class="voted">{{action.label}}</div></li></a>
 </ul>
 <hr ng-hide="actions.length > 0" />
