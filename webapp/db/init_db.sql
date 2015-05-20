@@ -1,6 +1,6 @@
 INSERT INTO `hxvote`.`Category` (`label`) VALUES ('Danse');
-INSERT INTO `hxvote`.`Action` (`category_id`, `label`) VALUES (1, 'Moonwalk');
-INSERT INTO `hxvote`.`Action` (`category_id`, `label`) VALUES (1, 'Lac des Cygnes');
+INSERT INTO `hxvote`.`Action` (`category_id`, `label`, `shortLabel`) VALUES (1, 'Moonwalk', 'moonwalk');
+INSERT INTO `hxvote`.`Action` (`category_id`, `label`, `shortLabel`) VALUES (1, 'Lac des Cygnes', 'lacdescygnes');
 INSERT INTO `hxvote`.`Action` (`category_id`, `label`) VALUES (1, 'Booty shake');
 INSERT INTO `hxvote`.`Action` (`category_id`, `label`) VALUES (1, 'French cancan');
 INSERT INTO `hxvote`.`Action` (`category_id`, `label`) VALUES (1, 'Macarena');
