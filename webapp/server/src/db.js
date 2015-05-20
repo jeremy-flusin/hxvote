@@ -185,7 +185,7 @@ var resetActionVotes = function resetActionVotes(callback){
 }
 
 var getActionsOrderedByVotes = function getActionsOrderedByVotes(order, callback){
-    var query = "SELECT a.id, a.label, a.votes, a.archivedVotes, c.id as categoryId, c.label AS categoryLabel FROM Action AS a, Category AS c WHERE a.category_id = c.id AND a.votes != 0 ORDER BY c.id ASC, a.votes "+ order +";"
+    var query = "SELECT a.id, a.label, a.shortLabel, a.votes, a.archivedVotes, c.id as categoryId, c.label AS categoryLabel FROM Action AS a, Category AS c WHERE a.category_id = c.id AND a.votes != 0 ORDER BY c.id ASC, a.votes "+ order +";"
     console.log("[DB]", query);
     pool.getConnection(function(err, connection){
         if(err) throw err;

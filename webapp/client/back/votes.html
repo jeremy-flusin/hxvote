@@ -3,20 +3,22 @@
      <a ng-click="downOrder()" class="thread-back-button pure-button">&#8593; Croi.</a>
      <a ng-click="upOrder()" class="thread-back-button pure-button">&#8595; Dec.</a>
      <a ng-click="resetActionVotes()" class="thread-back-button pure-button">&#10007; Reset</a>
+     <p>MP3 charg&eacute;s : {{soundsLoaded / 2}} / {{soundsToLoad}}</p>
 </div>
 <ul class="fullscreen-list votes">
-    <li ng-click="slide($event, action)" ng-repeat="action in actions" ng-class="{'covered': action.cover}">
-		 <div class="action" ng-show="!action.cover">
+    <li ng-click="slide($event, action)" ng-repeat="action in actions" ng-class="{'covered': action.cover || action.soundPlaying}">
+		 <div class="action" ng-show="!action.cover && !action.soundPlaying">
 					<div>
 						 <p class="categoryLabel">{{action.categoryLabel}}</p>
 						 <p class="votes">{{action.votes}}</p>
 					</div>
 			  <p class="actionLabel">{{action.label}}</p>
 		 </div>
-		 <div class="slider" ng-show="action.cover">
+		 <div class="slider" ng-show="action.cover || action.soundPlaying">
                 <div class="slider-buttons slider-actions">
-                    <button ng-click="play($event, action)" class="pure-button pure-button-primary white slider-button">&#10003; Jouer</button>
-                    <button ng-click="supp($event, action)" class="pure-button pure-button-primary slider-button black ">&#10007; Ignorer</button>
+                    <button ng-if="!action.soundPlaying" ng-click="playSound($event, action)" class="pure-button pure-button-primary white slider-button">&#9658; Jouer</button>
+                    <button ng-if="action.soundPlaying" ng-click="stopSound($event, action)" class="pure-button pure-button-primary white slider-button">&#9632; Stop</button>
+                    <button ng-click="supp($event, action)" class="pure-button pure-button-primary slider-button black ">&#10007; Effacer</button>
                 </div>
             </div>
     </li>

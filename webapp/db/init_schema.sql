@@ -4,6 +4,7 @@ CREATE TABLE `hxvote`.`Action` (
 `id` INT NOT NULL AUTO_INCREMENT,
 `category_id` INT NOT NULL,
 `label` VARCHAR(255) NULL,
+`shortLabel` VARCHAR(255) NULL,
 `votes` INT NULL DEFAULT 0,  
 `archivedVotes` INT NULL DEFAULT 0,    
 PRIMARY KEY (`id`));
