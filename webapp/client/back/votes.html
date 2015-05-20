@@ -3,7 +3,7 @@
      <a ng-click="downOrder()" class="thread-back-button pure-button">&#8593; Croi.</a>
      <a ng-click="upOrder()" class="thread-back-button pure-button">&#8595; Dec.</a>
      <a ng-click="resetActionVotes()" class="thread-back-button pure-button">&#10007; Reset</a>
-     <p>MP3 charg&eacute;s : {{soundsLoaded / 2}} / {{soundsToLoad}}</p>
+     <p class="audio-loaded">MP3 charg&eacute;s : {{soundsLoaded / 2}} / {{soundsToLoad}}</p>
 </div>
 <ul class="fullscreen-list votes">
     <li ng-click="slide($event, action)" ng-repeat="action in actions" ng-class="{'covered': action.cover || action.soundPlaying}">
