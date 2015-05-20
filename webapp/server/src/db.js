@@ -9,7 +9,7 @@ var pool = mysql.createPool({
     host     : 'localhost',
     database : 'hxvote',
     user     : 'root',
-    password : 'root',
+    password : 'zde84pzk',
     debug    : false
 });
 

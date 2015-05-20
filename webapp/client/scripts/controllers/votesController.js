@@ -10,15 +10,24 @@ angular.module('hxvoteBackEndNgApp')
       socketService.on('getActionsOrderedByVotes_result', function (data, order) {
             $scope.actions = data;
           
-            if(order == "DESC"){
-               $scope.actionsCroi = data;
-            }else{
-               $scope.actionsDec = data;
-            }
-          
-          $scope.soundsToLoad = data.length;                
-          $scope.$apply(); 
-          loadSounds(data);
+	    if(order == "DESC"){
+	       $scope.actionsCroi = data;
+	    }else{
+	       $scope.actionsDec = data;
+	    }
+
+	  data.forEach(function(action){
+		if(action.shortLabel !== null){
+			console.log(action.shortLabel);
+
+			$scope.soundsToLoad++;
+
+			action.hasSound = true;			
+		}  
+	  });
+  	  loadSounds(data);
+	  $scope.$apply();
+
       });
       socketService.emit('getActionsOrderedByVotes', "ASC");
       socketService.emit('getActionsOrderedByVotes', "DESC");
@@ -57,20 +66,28 @@ angular.module('hxvoteBackEndNgApp')
     
      var loadSounds = function loadSounds(actions){
         actions.forEach(function(action){
-            var audio = loadSound(action);
-            action.soundPlaying = false;
-            $scope.$apply();
-            audios[action.shortLabel] = audio;
+	    if(action.shortLabel !== null){
+		    var audio = loadSound(action);
+		    action.soundPlaying = false;
+		    $scope.$apply();
+		    audios[action.shortLabel] = audio;	    
+	    }
         });
      }
    
      var loadSound = function loadSound(action){
+
         var audio = document.createElement("audio");
         audio.src = "../audio/" + action.shortLabel + ".mp3";
         audio.type="audio/mpeg";
-        
+        audio.volume = 1;
          audio.addEventListener("loadeddata", function () {
             $scope.soundsLoaded ++;
+            $scope.$apply(); 
+         }, false);
+        
+        audio.addEventListener("ended", function () {
+            action.soundPlaying = false;
             $scope.$apply(); 
          }, false);
          return audio;

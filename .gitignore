@@ -1,5 +1,9 @@
 *~
 
+#audio
+*.mp3
+*.wav
+
 #dumps
 dumps
 
