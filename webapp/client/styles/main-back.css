@@ -243,3 +243,10 @@ ul.fullscreen-list a li:hover .icon-nose{
 .slider-actions{
 	padding: 20px;
 }
+
+.audio-loaded{
+	font-weight: 100;
+	font-size: 20px;
+	margin: 20px auto;
+	margin-left: 10%;
+}
