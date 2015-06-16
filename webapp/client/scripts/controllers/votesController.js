@@ -1,32 +1,30 @@
 'use strict';
 
 angular.module('hxvoteBackEndNgApp')
-  .controller('votesController', ['$scope', 'socketService', function ($scope, socketService) {
+  .controller('votesController', ['$window', '$scope', 'socketService', function ($window, $scope, socketService) {
     
       $scope.soundsToLoad = 0;
       $scope.soundsLoaded = 0;
       var audios = {};
-      
+
       socketService.on('getActionsOrderedByVotes_result', function (data, order) {
-            $scope.actions = data;
-          
-	    if(order == "DESC"){
-	       $scope.actionsCroi = data;
-	    }else{
-	       $scope.actionsDec = data;
-	    }
 
-	  data.forEach(function(action){
-		if(action.shortLabel !== null){
-			console.log(action.shortLabel);
+        $scope.actions = data;
 
-			$scope.soundsToLoad++;
+        if(order == "ASC"){
+          $scope.actionsCroi = data;
+        }else{
+          $scope.actionsDec = data;
+        }
 
-			action.hasSound = true;			
-		}  
-	  });
-  	  loadSounds(data);
-	  $scope.$apply();
+        data.forEach(function(action){
+          if(action.shortLabel !== null){
+            $scope.soundsToLoad++;
+            action.hasSound = true;     
+          }  
+        });
+        loadSounds(data);
+        $scope.$apply();
 
       });
       socketService.emit('getActionsOrderedByVotes', "ASC");
@@ -82,6 +80,7 @@ angular.module('hxvoteBackEndNgApp')
         audio.type="audio/mpeg";
         audio.volume = 1;
          audio.addEventListener("loadeddata", function () {
+            action.soundLoaded = true;
             $scope.soundsLoaded ++;
             $scope.$apply(); 
          }, false);
@@ -104,5 +103,11 @@ angular.module('hxvoteBackEndNgApp')
          audios[action.shortLabel].currentTime = 0;           
          action.soundPlaying = false;
      }
-     
+    
+    //Hack pour empêcher de rafraichir la page malencontreusement 
+    var windowElement = angular.element($window);
+    windowElement.on('beforeunload', function (event) {
+      event.preventDefault();
+    });
+
 }]);

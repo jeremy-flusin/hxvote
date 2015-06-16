@@ -2,7 +2,7 @@
 
 angular.module('hxvoteFrontEndNgApp')
   .controller('accessController', ['$scope', 'socketService', function ($scope, socketService) {
-    
+   $scope.about = false; 
    $scope.accessLoaded = false;  
       
    socketService.emit('getAdminParams');

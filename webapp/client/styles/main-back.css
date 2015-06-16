@@ -250,3 +250,10 @@ ul.fullscreen-list a li:hover .icon-nose{
 	margin: 20px auto;
 	margin-left: 10%;
 }
+
+.soundLoaded{
+    width: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    float:right;
+}

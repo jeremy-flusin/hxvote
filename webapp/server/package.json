@@ -7,6 +7,7 @@
     "koa-static": " 1.4.7",
     "koa-basic-auth": "*",
     "koa-mount": "*",
+    "koa-router": "*",
     "mysql": "2.5.1",
     "bluebird": "*",
     "socket.io": "1.1.0",

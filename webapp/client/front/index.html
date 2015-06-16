@@ -32,12 +32,20 @@
 		</div>
     
         <div ng-view ng-show="frontAccessible"></div>
-         <div class="denied-panel" ng-show="!frontAccessible">
+
+         <div class="denied-panel" ng-show="!frontAccessible && !$scope.about">
             <h2>Patience, vous allez bientôt pouvoir découvrir une nouvelle dimension de spectacle interactif...</h2><br/>
-            <h2>Appuyez sur ce bouton lorsque je vous le demanderai.</h2>                
-            <form action="index.html">
-               <button class="button pure-button pure-button-primary">Accéder à HX</button>
-            </form>
+            <h2>Appuyez sur ce bouton lorsque je vous le demanderai.</h2>
+            <div class="center-buttons buttons-about">                
+                <form action="index.html">
+                    <button class="button button-left pure-button pure-button-primary" style="color: #fff; margin-right: 10px;">Acc&eacute;der &agrave; HX</button>
+                </form>                
+                <form>
+                    <button ng-click="$scope.about=!$scope.about" class="button-about button-left pure-button pure-button-primary">&Agrave; propos de HX</button>
+                </form>  
+            </div>
+            </div>
          </div>
+         <div ng-show="!frontAccessible && $scope.about" ng-include="'about.html'"></div>
 	</body>
 </html>

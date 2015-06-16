@@ -204,9 +204,9 @@ ul.fullscreen-list a li:hover div.voted{
 }
 
 button.button-about{
-    background-color: #0097A7;
+    background-color: #DDD;
+    color: #0097A7;
     width: 150px;
-    height: 35px;
     margin-right: 10px;
 }
 
@@ -229,4 +229,8 @@ button.button-about{
 .buttons-about{
     width: 323px;
     margin: 20px auto 50px auto;
+}
+
+.dual-buttons{
+    width:300px;
 }
