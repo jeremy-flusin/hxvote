@@ -10,8 +10,12 @@
         <div class="labelNewFamily" ng-show="!addingFamily">+ Nouvelle famille</div>
         <div ng-show="addingFamily" class="newFamilyForm" >
             <p>Label </p>
-            <input ng-click="inputFocus($event)" type="text"/>
-            <button ng-click="" class="pure-button pure-button-primary supp-button slider-button">&#10003;Valider</button>
+            <input ng-model="newFamily" ng-click="inputFocus($event)" type="text"/>
+            <button 
+            ng-init="newFamily= ''"
+            ng-disabled="newFamily.length <= 0" 
+            ng-click="saveNewFamily($event)" 
+            class="pure-button pure-button-primary supp-button">&#10003;</button>
         </div>
     </li>
 </ul>

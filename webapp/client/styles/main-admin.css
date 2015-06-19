@@ -85,7 +85,6 @@ ul.votes li{
 }
 
 ul.fullscreen-list li div.proposal p, ul.fullscreen-list li div.action p{
-	margin-left: 10%;
     margin-top: 10px;
 }
 
@@ -100,6 +99,7 @@ p.author,p.date,p.votes,p.categoryLabel{
 p.author, p.categoryLabel{
     font-size: 20px;	
 	font-weight: 100;
+    margin-left: -11%;
 }
 p.date,p.votes{
     font-size: 10px;
@@ -240,10 +240,14 @@ p.action-description, p.actionLabel{
 .newFamilyForm input{
     display: inline-block;
     margin-left: 5%;
+    height: 30px;
 }
 
 .newFamilyForm button{
     display: inline-block;
+    height: 30px;
+    line-height: 15px;
+    margin-left: 20px;
 }
 .slider-actions{
 	padding: 20px;

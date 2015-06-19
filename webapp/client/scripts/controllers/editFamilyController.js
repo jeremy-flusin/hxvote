@@ -15,10 +15,20 @@ angular.module('hxvoteAdminNgApp')
          $scope.addingFamily = !$scope.addingFamily;  
       }
       
-      
       //petit hack pour éviter que l'input ne disparaisse quand on clique/tape dessus
       $scope.inputFocus = function inputFocus($event){
         $event.stopPropagation();
       }
       
+      $scope.saveNewFamily = function saveNewFamily($event){
+        console.log($scope.newFamily);
+        socketService.emit('saveNewCategory', $scope.newFamily);
+        socketService.on('saveNewCategory_result', function (bool) {
+          if(bool){
+            socketService.emit('getCategories');        
+            $scope.newFamily = "";
+          }
+        });
+
+      }
 }]);

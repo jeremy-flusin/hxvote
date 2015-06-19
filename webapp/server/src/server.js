@@ -129,6 +129,11 @@ ioserver.on('connection', function(socket) {
             socket.emit('setAdminParams_result', bool);
         });
     });
+    socket.on('saveNewCategory', function(category) {
+        db.saveNewCategory(category, function(bool){
+            socket.emit('saveNewCategory_result', bool);
+        });
+    });
 });
 server.listen(++port);
 
@@ -136,4 +141,3 @@ console.log("[INFO] \t... Socket connections at http://localhost:" + port + "/")
 console.log("[INFO] \t ...Listening on websockets.");
 console.log("[INFO] Admin et BackEnd pages can be accessed with:");
 console.log("[INFO] \t Username:  "+username+"     Password:  "+password);
-

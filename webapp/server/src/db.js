@@ -224,6 +224,26 @@ var setAdminParams = function setAdminParams(adminParams, callback){
     });
 }
 
+var saveNewCategory = function saveNewCategory(category, callback){
+    pool.getConnection(function(err, connection){
+        if(err) throw err;
+        var query = "INSERT INTO Category (label) VALUES ("+connection.escape(category)+");";
+        console.log("[DB]", query);
+        connection.query(query,
+            function(errq, rows, fields) {
+                connection.release();
+                if (errq) {
+                    console.log("[DB] Fail !");
+                    callback(false);
+                    throw err;
+                }else{
+                    console.log("[DB] Success !");
+                    callback(true);
+                }
+            });
+    });
+}
+
 var getAdminParams = function getAdminParams(callback){
     var query = "SELECT frontAccessible FROM Administration;";
     console.log("[DB]", query);
@@ -257,5 +277,6 @@ module.exports = {
     archiveActionRequest: archiveActionRequest,
     deleteArchivedActionRequest: deleteArchivedActionRequest,
     getAdminParams: getAdminParams,
-    setAdminParams: setAdminParams
+    setAdminParams: setAdminParams,
+    saveNewCategory: saveNewCategory
 };
