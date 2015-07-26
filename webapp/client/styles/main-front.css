@@ -210,27 +210,91 @@ button.button-about{
     margin-right: 10px;
 }
 
-.crop{
-    overflow: hidden;    
-    margin: 20px auto;    
-    height: 200px;    
-    width: 100%;
-    box-shadow: 0px 0px 10px #0097A7; 
-   -webkit-box-shadow: 0px 0px 10px #0097A7; 
-   -ms-box-shadow: 0px 0px 10px #0097A7;
-   -o-box-shadow: 0px 0px 10px #0097A7;  
-}
-
-.crop img {
-    width: 100%;
-    margin-top: -50px;
-}
-
 .buttons-about{
     width: 323px;
     margin: 20px auto 50px auto;
 }
 
+strong{
+    font-weight: 500;
+}
+
 .dual-buttons{
     width:300px;
+}
+
+.about-text{
+    width: 90%;
+    text-align: left;
+    margin: 0 auto;
+    font-weight: 100;
+}
+
+.about-text p{
+    margin-left: 10px;
+    text-align: justify;
+    line-height: 22px;
+}
+
+.about-text h1{
+    text-align: left;
+    color: #0097A7;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.about-text h2{
+    margin-right: 0;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.about-text ul{
+    margin-top: 20px;
+    list-style-type: disc;
+    margin-left: 30px;
+    line-height: 22px;
+}
+
+.about-text img.centered{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 0 auto;
+    display: block;
+}
+
+.about-text .video{
+    width: 100%;
+    max-width: 560px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.about-text button{
+    display: block;
+    width: 100px;
+    margin-left: 10px;
+    margin-top: -5px;
+}
+
+.about-text img.social{
+    width: 50px;
+}
+
+.about-text .social-links a{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.about-text .summary{
+    list-style-type: none;
+    font-size: 1.1em;
+}
+
+.about-text .summary li{
+    margin: 5px 0;
 }
