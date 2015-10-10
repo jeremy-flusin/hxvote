@@ -1,3 +1,8 @@
+// Je m'adresse à la bonne poire qui va prendre le relai sur ce code:
+// Je m'excuse pour la qualité merdique.
+// Disons que le product owner ne me donnait pas envie de founir de la qualité ;)
+// Bon courage et bienvenue en enfer !
+
 'use strict';
 var koa = require('koa'),
     router = require('koa-router')(),
