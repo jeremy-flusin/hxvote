@@ -7,7 +7,8 @@ var koa = require('koa'),
     http = require('http'),
     path = require("path"),
     io = require('socket.io'),
-    db = require('./db.js');
+    db = require('./db.js'),
+    player = require('./player.js');
 
 var username = "admin";
 var password = "zde84pzk";
@@ -133,6 +134,12 @@ ioserver.on('connection', function(socket) {
         db.saveNewCategory(category, function(bool){
             socket.emit('saveNewCategory_result', bool);
         });
+    });
+    socket.on('play-sound', function(shortLabel) {
+       player.play(shortLabel);       
+    });
+    socket.on('stop-play', function() {
+       player.stop();       
     });
 });
 server.listen(++port);
